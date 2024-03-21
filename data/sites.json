@@ -5,17 +5,17 @@
       "pages": {
           "Home": {
               "title": "Fruit Smoothies :: Project Homepage",
-              "headerImage": "/static/img/boats/boat1.jpg",
+              "headerImage": "/static/img/boats/Boat1.jpg",
               "subtitle": "Rate my Boat"
           },
           "Rating": {
               "title": "Fruit Smoothies :: Rate the Superheroes",
-              "headerImage": "/static/img/boats/boat2.jpg",
+              "headerImage": "/static/img/boats/Boat2.jpg",
               "subtitle": "Rate the Boats"
           },
           "Leaderboard": {
               "title": "Fruit Smoothies :: Current Leaderboard",
-              "headerImage": "/static/img/boats/boat3.jpg",
+              "headerImage": "/static/img/boats/Boat3.jpg",
               "subtitle": "Current Leaderboard"
           }
       }
