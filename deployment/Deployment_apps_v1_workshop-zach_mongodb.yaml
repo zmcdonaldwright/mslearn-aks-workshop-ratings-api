@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"mongodb:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"mongodb\")].image","pause":""}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: mongodb
+    app.kubernetes.io/component: mongodb
+    app.kubernetes.io/instance: mongodb
+  name: mongodb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: mongodb
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: mongodb
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_DATABASE
+          value: ratingsdb
+        - name: MONGODB_PASSWORD
+          value: ratingspassword
+        - name: MONGODB_ROOT_PASSWORD
+          value: ratingspassword
+        - name: MONGODB_ROOT_USER
+          value: root
+        - name: MONGODB_USERNAME
+          value: ratingsuser
+        image: bitnami/mongodb@sha256:b731d29fb853a3e92e21e011113e8ebd773de79437a42c7b7011335422a7523e
+        imagePullPolicy: IfNotPresent
+        name: mongodb
+        ports:
+        - containerPort: 27017
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

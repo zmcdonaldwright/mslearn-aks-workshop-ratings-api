@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"rating-web:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"rating-web\")].image","pause":""}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: rating-web
+    app.kubernetes.io/component: rating-web
+    app.kubernetes.io/instance: rating-web
+  name: rating-web
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: rating-web
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: rating-web
+    spec:
+      containers:
+      - env:
+        - name: API
+          value: http://rating-api:8080
+        image: image-registry.openshift-image-registry.svc:5000/workshop-zach/rating-web@sha256:679e43e91b8e909e1afe3292a8b977efaa340df74412d769ed3d834dcf6d0d4c
+        imagePullPolicy: IfNotPresent
+        name: rating-web
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

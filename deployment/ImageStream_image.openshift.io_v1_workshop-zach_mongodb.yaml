@@ -1,0 +1,26 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/image.dockerRepositoryCheck: "2024-03-20T02:19:40Z"
+  labels:
+    app: mongodb
+    app.kubernetes.io/component: mongodb
+    app.kubernetes.io/instance: mongodb
+  name: mongodb
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/imported-from: bitnami/mongodb
+    from:
+      kind: DockerImage
+      name: bitnami/mongodb
+    generation: 2
+    importPolicy:
+      importMode: Legacy
+    name: latest
+    referencePolicy:
+      type: Source

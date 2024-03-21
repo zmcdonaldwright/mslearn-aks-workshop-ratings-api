@@ -1,0 +1,42 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: rating-api
+    app.kubernetes.io/component: rating-api
+    app.kubernetes.io/instance: rating-api
+  name: rating-api
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: rating-api:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/zmcdonaldwright/mslearn-aks-workshop-ratings-api
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nodejs:16-ubi8
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: FvnIbUFvNfPxZp8X8E9q
+    type: GitHub
+  - generic:
+      secret: xupnwuab0_bC18ra1c90
+    type: Generic
+  - type: ConfigChange
+  - imageChange: {}
+    type: ImageChange

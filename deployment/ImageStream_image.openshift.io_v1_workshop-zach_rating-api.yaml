@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: rating-api
+    app.kubernetes.io/component: rating-api
+    app.kubernetes.io/instance: rating-api
+  name: rating-api
+spec:
+  lookupPolicy:
+    local: false

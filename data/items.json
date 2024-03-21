@@ -2,5 +2,10 @@
   {"name":"HMNZS  Aotearoa","uid":1.0,"img":"/static/img/boats/Aotearoa.jpg"},
   {"name":"HMNZS Canterbury","uid":2.0,"img":"/static/img/boats/Canterbury.png"},
   {"name":"HMNZS Manawanui","uid":3.0,"img":"/static/img/boats/Manawanui.png"},
-  {"name":"HMNZS Wellington","uid":4.0,"img":"/static/img/boats/Wellington.png"}
+  {"name":"HMNZS Wellington","uid":4.0,"img":"/static/img/boats/Wellington.png"},
+  {"name":"HMS Endevour","uid":5.0,"img":"/static/img/boats/Endevour.jpg"},
+  {"name":"HMNZS Te Mana","uid":6.0,"img":"/static/img/boats/TeMana.jpg"},
+  {"name":"HMNZS Bail","uid":7.0,"img":"/static/img/boats/Db.jpg"},
+  {"name":"HMNZS Te Kaha","uid":8.0,"img":"/static/img/boats/TeKaha.jpg"},
+  {"name":"HMNZS Otago","uid":9.0,"img":"/static/img/boats/Otago.jpg"}
 ]

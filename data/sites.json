@@ -4,18 +4,18 @@
       "shortCode": "FR",
       "pages": {
           "Home": {
-              "title": "Rate my Boat :: Homepage",
-              "headerImage": "/static/img/boats/Boat1.jpg",
-              "subtitle": "Rate my Boat"
+              "title": "Rate my Ship :: Homepage",
+              "headerImage": "/static/img/boats/AiShip.jpg",
+              "subtitle": "Rate my Ship"
           },
           "Rating": {
-              "title": "Rate my Boat :: Rate the Boats",
-              "headerImage": "/static/img/boats/Boat2.jpg",
-              "subtitle": "Rate the Boats"
+              "title": "Rate my Ship :: Rate the Ships",
+              "headerImage": "/static/img/boats/AiShip.jpg",
+              "subtitle": "Rate the Ships"
           },
           "Leaderboard": {
-              "title": "Rate my Boat :: Current Leaderboard",
-              "headerImage": "/static/img/boats/Boat3.jpg",
+              "title": "Rate my Ship :: Current Leaderboard",
+              "headerImage": "/static/img/boats/AiShip.jpg",
               "subtitle": "Current Leaderboard"
           }
       }

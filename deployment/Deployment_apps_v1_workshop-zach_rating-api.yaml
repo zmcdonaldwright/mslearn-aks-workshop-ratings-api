@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"rating-api:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"rating-api\")].image","pause":""}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: rating-api
+    app.kubernetes.io/component: rating-api
+    app.kubernetes.io/instance: rating-api
+  name: rating-api
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: rating-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: rating-api
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_URI
+          value: mongodb://ratingsuser:ratingspassword@mongodb:27017/ratingsdb
+        image: image-registry.openshift-image-registry.svc:5000/workshop-zach/rating-api@sha256:bd1db4a8bff74be8387bfb5c8f6bdcf95cfe47b842dee962daf9f440bcf7c37f
+        imagePullPolicy: IfNotPresent
+        name: rating-api
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
