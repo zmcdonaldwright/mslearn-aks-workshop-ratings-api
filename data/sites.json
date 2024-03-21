@@ -4,17 +4,17 @@
       "shortCode": "FR",
       "pages": {
           "Home": {
-              "title": "Fruit Smoothies :: Project Homepage",
+              "title": "Rate my Boat :: Homepage",
               "headerImage": "/static/img/boats/Boat1.jpg",
               "subtitle": "Rate my Boat"
           },
           "Rating": {
-              "title": "Fruit Smoothies :: Rate the Superheroes",
+              "title": "Rate my Boat :: Rate the Boats",
               "headerImage": "/static/img/boats/Boat2.jpg",
               "subtitle": "Rate the Boats"
           },
           "Leaderboard": {
-              "title": "Fruit Smoothies :: Current Leaderboard",
+              "title": "Rate my Boat :: Current Leaderboard",
               "headerImage": "/static/img/boats/Boat3.jpg",
               "subtitle": "Current Leaderboard"
           }
